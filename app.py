@@ -24,7 +24,7 @@ if st.button("Send"):
     response =openai.ChatCompletion.create(
       model="gpt-3.5-turbo", messages=st.session_state["messages"]
     )
-    messager_esponse = response["choices"][0]["message"]["content"]
+    message_response = response["choices"][0]["message"]["content"]
     st.session_state["messages"] +=[
       {"role":"system","content": message_response}
     ]
