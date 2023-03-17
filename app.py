@@ -3,14 +3,14 @@ import streamlit as st
 
 def show_messages(text):
   messages_str = [
-    f"{_['role']}:{_['content']}" for_ in st.session_state["messages"][1:]
+    f"{_['role']}: {_['content']}" for _ in st.session_state["messages"][1:]
   ]
-  text.text_area("Messages"，value=str("\n\n".join(messages_str))，height=400)
+  text.text_area("Messages", value=str("\n\n".join(messages_str)), height=400)
 
 BASE_PROMPT=[{"role":"system","content": "You are a helpful assistant."}]
 
 if "messages" not in st.session_state:
-  st.session state["messages"] =BASE_PROMPT
+  st.session_state["messages"] =BASE_PROMPT
 
 st.subheader("ChatGpT @ IEG Growth Platform Data Science")
 
