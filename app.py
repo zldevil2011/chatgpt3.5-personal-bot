@@ -16,7 +16,7 @@ if "messages" not in st.session_state:
 st.subheader("ChatGpT @ IEG Growth Platform Data Science")
 
 openai.api_key=st.text_input("Paste your OpenAI API Key here", value="", type="password")
-prompt=st.text_input("Prompt", value="Enter your message here...")
+prompt=st.text_input("Prompt", value="")
 
 if st.button("Send"):
   with st.spinner("Generating response..."):
@@ -24,7 +24,7 @@ if st.button("Send"):
     response =openai.ChatCompletion.create(
       model="gpt-3.5-turbo", messages=st.session_state["messages"]
     )
-    messageresponse = response["choices"][8]["message"]["content"]
+    messager_esponse = response["choices"][0]["message"]["content"]
     st.session_state["messages"] +=[
       {"role":"system","content": message_response}
     ]
