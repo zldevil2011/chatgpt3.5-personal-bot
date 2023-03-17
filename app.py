@@ -1,6 +1,7 @@
 import openai
 import streamlit as st
 
+
 def show_messages(text):
   messages_str = [
     f"{_['role']}: {_['content']}" for _ in st.session_state["messages"][1:]
@@ -14,7 +15,7 @@ if "messages" not in st.session_state:
 
 st.subheader("ChatGpT @ IEG Growth Platform Data Science")
 
-openai.api_key=st.textinput("Paste your OpenAI API Key here", value="", type="password")
+openai.api_key=st.text_input("Paste your OpenAI API Key here", value="", type="password")
 prompt=st.text_input("Prompt", value="Enter your message here...")
 
 if st.button("Send"):
